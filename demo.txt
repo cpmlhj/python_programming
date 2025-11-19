@@ -1,0 +1,9 @@
+The minimum size here is 23ch or 23 character units, and the maximum size is 46ch or 46 characters. Character width units are based on the element’s font size (specifically the width of the 0 glyph). The “actual” size is 50%, which represents 50% of the width of this element’s parent.
+
+Here, what the clamp() function does is keep the element 50% wide until 50% is greater than 46ch (on a wider viewport) or less than 23ch (on a smaller viewport). You can see that as I stretch and shrink the parent dimension, the width of this card increases to its maximum limit point and decreases to its minimum limit point.
+
+Then it stays centered on the parent because we’ve applied other properties to center it. This allows for a cleaner layout, as the text is not too wide (more than 46ch) or too narrow (less than 23ch).
+
+This is also a great way to implement responsive typography. For example, you can write: font-size: clamp(1.5rem, 20vw, 3rem) . In this case, the title’s font size will always remain between 1.5rem and 3rem, but will grow and shrink based on the actual 20vw value to fit the width of the viewport.
+
+This is a good technique to ensure legibility with minimum and maximum size values, but keep in mind that not all modern browsers support it, so make sure you have fallbacks in place and test
